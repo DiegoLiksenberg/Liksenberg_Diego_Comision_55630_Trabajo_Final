@@ -1,0 +1,15 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Buscar Club 
+{% endblock titulo %}
+    
+{% block contenido %}
+    <h2>Buscar Clubes</h2>
+    <form action="/buscar5" method="get">
+        {% csrf_token %}
+        <p>Patrón a buscar en Clubes: <input type="text" name="buscar" id="buscar"></p>
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock contenido %}

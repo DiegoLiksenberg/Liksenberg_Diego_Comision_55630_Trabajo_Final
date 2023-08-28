@@ -1,0 +1,28 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Agregar Entrenador
+{% endblock titulo %}
+ 
+{% block contenido %}
+    <h2>Agregar un Entrenador</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {% for field in form %}
+                <tr>
+                    <td>
+                        {% if field.name == 'fechaAlta' %}
+                            <label for="{{ field.id_for_label }}">Fecha de Alta:</label>
+                        {% else %}
+                            {{ field.label_tag }}
+                        {% endif %}
+                    </td>
+                    <td>{{ field }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock contenido %}

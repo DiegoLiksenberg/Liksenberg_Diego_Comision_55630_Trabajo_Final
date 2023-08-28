@@ -1,0 +1,17 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Deportista
+{% endblock titulo %}
+    
+{% block contenido %}
+    <h2>Agregar y/o Modificar un Deportista</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock contenido %}

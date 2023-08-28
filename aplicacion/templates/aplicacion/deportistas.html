@@ -1,0 +1,36 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Página de Deportistas 
+{% endblock titulo %}
+    
+{% block contenido %}
+    <h1>{{ titulo|upper }}</h1> 
+    
+    <h4>Cantidad de Deportistas Afiliados: {{deportistas|length}}</h4>
+    <table class="table table-striped">  
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>email</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for c in deportistas %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.nombre }}</td>
+                <td>{{ c.apellido }}</td>
+                <td>{{ c.email }}</td>
+                <td>{{ c.edad }}</td>
+            </tr>
+
+    {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock contenido %}

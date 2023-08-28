@@ -1,0 +1,32 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Página de Clubes  
+{% endblock titulo %}
+    
+{% block contenido %}
+    <h1>{{ titulo|upper }}</h1> 
+    
+    <h4>Cantidad de Clubes: {{clubes|length}}</h4>
+    <table class="table table-striped">  
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Domicilio</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for c in clubes %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.nombre }}</td>
+                <td>{{ c.domicilio }}</td>
+            </tr>
+
+    {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock contenido %}

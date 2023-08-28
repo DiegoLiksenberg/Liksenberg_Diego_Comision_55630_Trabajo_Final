@@ -1,0 +1,32 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Página de Deportes a practicar  
+{% endblock titulo %}
+    
+{% block contenido %}
+    <h1>{{ titulo|upper }}</h1> 
+    
+    <h4>Cantidad de Actividades Deportivas Disponibles: {{deportes|length}}</h4>
+    <table class="table table-striped">  
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Deporte</th>
+                <th>Categoría</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for c in deportes %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.nombre }}</td>
+                <td>{{ c.categoría }}</td>
+            </tr>
+
+    {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock contenido %}

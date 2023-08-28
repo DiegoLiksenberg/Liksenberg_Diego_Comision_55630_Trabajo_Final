@@ -1,0 +1,36 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Página de Entrenadores    
+{% endblock titulo %}
+    
+{% block contenido %}
+    <h1>{{ titulo|upper }}</h1> 
+    
+    <h4>Cantidad de Entrenadores Disponibles: {{entrenadores|length}}</h4>
+    <table class="table table-striped">  
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>email</th>
+                <th>Fecha de Alta</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for c in entrenadores %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.nombre }}</td>
+                <td>{{ c.apellido }}</td>
+                <td>{{ c.email }}</td>
+                <td>{{ c.fechaAlta }}</td>
+            </tr>
+
+    {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock contenido %}
